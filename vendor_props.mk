@@ -142,14 +142,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.callstack=1 \
     debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    debug.sf.latch_unsignaled=1 \
+    debug.sf.hw=0 \
+    debug.sf.latch_unsignaled=0 \
     debug.sf.disable_backpressure=1 \
     debug.sf.enable_gl_backpressure=1 \
-    debug.sf.early_phase_offset_ns=1500000 \
-    debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000 \
     debug.cpurend.vsync=false \
     persist.sys.sf.color_saturation=1.0 \
     persist.hwc.enable_vds=1 \
@@ -164,7 +160,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Rendering
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=1 \
+    debug.egl.hw=0 \
     debug.enable.sglscale=1 \
     debug.sf.disable_hwc=0 \
     debug.sf.gpu_comp_tiling=1 \
@@ -186,8 +182,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
     ro.surface_flinger.protected_contents=true \
-    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+    ro.surface_flinger.vsync_event_phase_offset_ns=4000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=8000000
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000
+
 
 # IMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -219,3 +222,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1
+
+# Create Swap disk
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.swap=true
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.fha_enable=true \
+    ro.sys.fw.bg_apps_limit=32 \
+    ro.config.dha_cached_max=16 \
+    ro.config.dha_empty_max=42 \
+    ro.config.dha_empty_init=32 \
+    ro.config.dha_lmk_scale=0.545 \
+    ro.config.dha_th_rate=2.3 \
+    ro.config.sdha_apps_bg_max=64 \
+    ro.config.sdha_apps_bg_min=8
